@@ -1,0 +1,14 @@
+@import '../../common/colors.scss';
+@import '../../common/screens.scss';
+
+.container{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 40%;
+    z-index: 4;
+    background-color: rgba(0,0,0,0.5);
+}
+
+
