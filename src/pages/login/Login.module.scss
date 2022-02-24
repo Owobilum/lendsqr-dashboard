@@ -1,0 +1,92 @@
+@import '../../common/colors.scss';
+@import '../../common/screens.scss';
+
+.container{
+    padding: 5%;
+
+    .logo{
+        width:100px;
+        @include desktop{
+            width: 173px;
+            margin-bottom: 50px;;
+        }
+    }
+    div.main{
+        @include desktop{
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 100px;
+        }
+        .form_container{
+            margin-top: 32px;
+            @include desktop{
+                flex: 1;
+                margin-top: 0;
+            }
+            .heading{
+                color: $primary-color;
+            }
+            .subhead{
+                color: $text-secondary;
+                margin-bottom: 32px;
+            }
+            form{
+                div.input_container{
+                    display: flex;
+                    position: relative;
+                    margin: 12px 0;
+                    input{
+                        display: block;
+                        width: 100%;
+                        height: 50px;
+                        &:focus{
+                            border: solid;
+                            border-color: $secondary-color;
+                        }
+                    }
+                    p.show_btn{
+                        position: absolute;
+                        text-transform: uppercase;
+                        z-index: 2;
+                        right: 0;
+                        vertical-align: middle;
+                        padding-right: 16px;
+                        top: 15px;
+                        color: $secondary-color;
+                        font-weight: 600;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                }
+                a{
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    color: $secondary-color;
+                    display: block;
+                    font-weight: 600;
+                }
+                button{
+                    width:100%;
+                    background-color: $secondary-color;
+                    color: $text-white;
+                    height: 48px;
+                    text-transform: uppercase;
+                    border-color: $secondary-color;
+                    border-radius: 8px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    
+        .hero_container{
+            margin-top: 16px;
+            @include desktop{
+                flex: 1;
+            }
+        }
+    }
+
+}

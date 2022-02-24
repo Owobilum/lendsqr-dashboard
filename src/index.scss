@@ -8,6 +8,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+img{
+  max-width: 100%;
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
   margin: 0;
