@@ -1,20 +1,26 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import logo from '../../images/logo.svg'
 import hero from '../../images/hero.svg'
 import styles from './Login.module.scss'
 
 const Login = () => {
+    const navigate = useNavigate()
     const [isShowPassword, setIsShowPasword] = useState(false)
 
+    const handleLogin = e => {
+        e.preventDefault()
+        navigate('/dashboard')
+    }
     return (
         <div className={styles.container}>
             {/* LOGO */}
             <div>
                 <img src={logo} alt="lendsqr_logo" className={styles.logo} />
             </div>
-            {/* Login Form */}
             <div className={styles.main}>
+                {/* Login Form */}
                 <div className={styles.form_container}>
                     <h1 className={styles.heading}>Welcome!</h1>
                     <p className={styles.subhead}> Enter details to login</p>
@@ -30,7 +36,7 @@ const Login = () => {
                             </p>
                         </div>
                         <a href='#'>forgot password?</a><br />
-                        <button onClick={e => e.preventDefault()}>log in</button>
+                        <button onClick={handleLogin}>log in</button>
                     </form>
                 </div>
                 {/* Hero Image */}

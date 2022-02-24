@@ -4,4 +4,10 @@ $width: 768px;
     @media (min-width: #{$width}){
         @content
     }
+};
+
+@mixin mobile {
+    @media (max-width: #{767px}){
+        @content
+    }
 }
