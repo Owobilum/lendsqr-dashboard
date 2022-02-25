@@ -2,7 +2,7 @@
 @import '../../common/screens.scss';
 
 .container{
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
@@ -53,5 +53,33 @@
 
     hr{
         margin-top: 16px;
+    }
+    .nav_item{
+        font-size: 12px;
+        color: $primary-color;
+        margin:8px 0;
+        display: flex;
+        .icon_box{
+            width: 8px;
+            margin-right: 4px;
+            flex:1
+        }
+        .icon_text{
+            flex:10
+        }
+        .icon_action{
+            flex: 1
+        }
+    }
+
+    #Users{
+        background-color: red;
+    }
+
+    .category{
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 500;
+        color: $primary-color;
     }
 }

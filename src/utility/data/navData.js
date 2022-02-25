@@ -21,29 +21,29 @@ import auditLogs from '../../images/icons/audit_log_icon.png'
 
 export const navData = {
     customers: [
-        { title: 'users', icon: users },
-        { title: 'guarantors', icon: guarantors },
-        { title: 'loans', icon: loans },
-        { title: 'decision models', icon: decisionModels },
-        { title: 'savings', icon: savings },
-        { title: 'loan requests', icon: loanRequests },
-        { title: 'whitelist', icon: whitelist },
-        { title: 'karma', icon: karma }
+        { title: 'Users', icon: users },
+        { title: 'Guarantors', icon: guarantors },
+        { title: 'Loans', icon: loans },
+        { title: 'Decision Models', icon: decisionModels },
+        { title: 'Savings', icon: savings },
+        { title: 'Loan Requests', icon: loanRequests },
+        { title: 'Whitelist', icon: whitelist },
+        { title: 'Karma', icon: karma }
     ],
-    businesses: [
-        { title: 'organization', icon: organization },
-        { title: 'loan products', icon: loanProducts },
-        { title: 'savings producs', icon: savingsProducts },
-        { title: 'fees and charges', icon: feesCharges },
-        { title: 'transactions', icon: transactions },
-        { title: 'services', icon: services },
-        { title: 'service account', icon: serviceAccount },
-        { title: 'settlements', icon: settlements },
-        { title: 'reports', icon: reports }
+    business: [
+        { title: 'Organization', icon: organization },
+        { title: 'Loan Products', icon: loanProducts },
+        { title: 'Savings Producs', icon: savingsProducts },
+        { title: 'Fees and Charges', icon: feesCharges },
+        { title: 'Transactions', icon: transactions },
+        { title: 'Services', icon: services },
+        { title: 'Service Account', icon: serviceAccount },
+        { title: 'Settlements', icon: settlements },
+        { title: 'Reports', icon: reports }
     ],
     settings: [
-        { title: 'preferences', icon: preferences },
-        { title: 'fees and pricing', icon: feesPricing },
-        { title: 'audit logs', icon: auditLogs }
+        { title: 'Preferences', icon: preferences },
+        { title: 'Fees and Pricing', icon: feesPricing },
+        { title: 'Audit Logs', icon: auditLogs }
     ]
 }
