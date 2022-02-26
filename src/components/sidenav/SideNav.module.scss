@@ -9,12 +9,17 @@
     max-width: 100%;
     background-color: #ffffff;
     padding: 16px;
+    z-index: 10;
     .nav_item{
         font-size: 16px;
         color: $primary-color;
         margin:8px 0;
         display: flex;
         cursor: pointer;
+        padding: 8px 0;
+        &:hover{
+            background-color: #f3fcfc;
+        }
         .icon_box{
             width: 16px;
             margin-right: 4px;

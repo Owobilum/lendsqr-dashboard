@@ -8,7 +8,7 @@ import Card from '../../components/card/Card'
 import Table from '../../components/table/Table'
 
 
-const tableHeadings = ['Organization', 'Username', 'Email', 'Phone Number', 'Date Joined', 'Status']
+const tableHeadings = ['Organization', 'Username', 'Email', 'Phone Number', 'Date Joined', 'Status', '']
 
 const Dashboard = () => {
     return (
