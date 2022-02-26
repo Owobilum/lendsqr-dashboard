@@ -1,0 +1,28 @@
+@import '../../common/colors.scss';
+@import '../../common/screens.scss';
+
+.container{
+    color:$primary-color;
+    .heading{
+        margin-bottom: 16px;
+        font-weight: 500;
+        margin-top: 32px;
+    }
+    .flex_box{
+        display: flex;
+        flex-wrap: wrap;
+        gap:16px;
+        padding: 16px 0;
+        border-bottom: 1px solid lightgray;
+        div{
+            // flex: 1
+            width: 200px;
+            .item{
+                text-transform: uppercase;
+            }
+            .value{
+                font-weight: 500;
+            }
+        }
+    }
+}
