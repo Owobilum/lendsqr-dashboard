@@ -27,7 +27,7 @@ const SideNav = () => {
                         <div>
                             {navData[category].map(({ title, icon }) => (
                                 <div className={styles.nav_item} key={title}
-                                    style={title === 'Users' ? { background: '#f3fcfc', borderLeft: 'solid 1px #39CDCC', paddingLeft: 2 } : {}}
+                                    style={title === 'Users' ? { background: '#f3fcfc', borderLeft: 'solid #39CDCC', paddingLeft: 2 } : {}}
                                 >
                                     <p className={styles.icon_box}><img src={icon} alt=""></img></p>
                                     <p className={styles.icon_text}>{title}</p>

@@ -72,10 +72,12 @@
                     color: $text-white;
                     height: 48px;
                     text-transform: uppercase;
+                    border: none;
                     border-color: $secondary-color;
                     border-radius: 8px;
                     &:hover{
                         cursor: pointer;
+                        opacity: 0.9;
                     }
                 }
             }

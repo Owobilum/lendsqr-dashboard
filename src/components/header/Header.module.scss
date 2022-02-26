@@ -8,6 +8,10 @@
     justify-content: space-between;
     align-items: center;
     gap: 16px;
+    @include desktop{
+        padding-left: 2%;
+        padding-right: 5%;
+    }
     .logo_container{
         .mobile_logo{
             @include desktop{
