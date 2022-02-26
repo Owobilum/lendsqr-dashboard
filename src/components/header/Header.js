@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import styles from './Header.module.scss'
 import hamburger from '../../images/hamburger.svg'
@@ -8,8 +8,12 @@ import bellIcon from '../../images/bell_icon.png'
 import profileImg from '../../images/profile_img.jpg'
 import downArrow from '../../images/down_arrow.png'
 import searchIcon from '../../images/search_icon.png'
+import Drawer from '../drawer/Drawer'
+import Overlay from '../overlay/Overlay'
 
 const Header = () => {
+    const [showDrawer, setShowDrawer] = useState(false)
+
     return (
         <div className={styles.container}>
             <div className={styles.logo_container}>
@@ -42,8 +46,16 @@ const Header = () => {
                 </div>
             </div>
             <div className={styles.hamburger_container}>
-                <img src={hamburger} alt="menu" className={styles.hamburger} />
+                <img src={hamburger} alt="menu" className={styles.hamburger}
+                    onClick={() => setShowDrawer(prev => !prev)}
+                />
             </div>
+            {
+                showDrawer && <Drawer />
+            }
+            {
+                showDrawer && <Overlay setShowDrawer={setShowDrawer} />
+            }
         </div>
     )
 }
