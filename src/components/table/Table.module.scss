@@ -1,0 +1,61 @@
+@import '../../common/colors.scss';
+@import '../../common/screens.scss';
+
+.root{
+    position: relative;
+    .table_container{
+        margin-top: 40px;
+        padding: 16px;
+        background-color: #fff;
+        box-shadow: 2px 1px 20px 0 lightgray;
+        overflow-x: auto;
+        color: $primary-color;
+        table{
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+            thead{
+                tr{
+                    th{
+                        padding: 16px 0;
+                        .filter_icon{
+                            cursor: pointer;
+                            width: 16px;
+                            @include mobile{
+                              width: 12px
+                            }
+                        }
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    td{
+                        border-bottom: 1px solid #ddd;
+                        padding: 8px 0;                            
+                    }
+                
+                }
+            }
+        }
+    }
+    .table_footer{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 24px;
+        color: $primary-color;
+        @include mobile{
+            flex-direction: column;
+            gap: 8px;
+        }
+        .table_nav{
+            display: flex;
+            gap: 8px;
+            img{
+                cursor: pointer;
+            }
+        }
+    }
+
+}
+
