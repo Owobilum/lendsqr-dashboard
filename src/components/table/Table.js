@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import styles from './Table.module.scss'
 import filterIcon from '../../images/icons/filter_icon.png'
-// import actionsIcon from '../../images/icons/actions_icon.png'
 import prevIcon from '../../images/icons/prev_btn.png'
 import nextIcon from '../../images/icons/next_btn.png'
 import Filter from '../filter/Filter'
@@ -73,9 +72,6 @@ const Table = ({ tableHeadings }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* <TableRow />
-                        <TableRow />
-                        <TableRow /> */}
                         {
                             currentUsers && currentUsers.map((user, index) => (
                                 <TableRow user={user} key={index} />
@@ -110,7 +106,6 @@ const Table = ({ tableHeadings }) => {
                         <button className={styles.page_btn} onClick={() => setCurrentPage(3)}>3</button>
                         <span>....</span>
                         <button className={styles.page_btn} onClick={() => setCurrentPage(totalPages)}>{totalPages}</button>
-                        {/* 1 2 3 .... 50 */}
                     </div>
                     <div>
                         <img src={nextIcon} alt="" width="24px"

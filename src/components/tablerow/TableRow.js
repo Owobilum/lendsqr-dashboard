@@ -7,7 +7,7 @@ import blacklistIcon from '../../images/icons/blacklist_user_icon.png'
 import activateIcon from '../../images/icons/activate_user_icon.png'
 import styles from './TableRow.module.scss'
 
-const TableRow = ({ user: { id, name, email, body } }) => {
+const TableRow = ({ user: { id, name, email, body }, isLast }) => {
     const navigate = useNavigate()
     const [showMenu, setShowMenu] = useState(false)
     if (name.length > 12) {

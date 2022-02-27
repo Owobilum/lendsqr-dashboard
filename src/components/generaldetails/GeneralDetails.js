@@ -41,7 +41,7 @@ const GeneralDetails = () => {
             </div>
 
             <p className={styles.heading}>Guarantor</p>
-            <div className={styles.flex_box}>
+            <div className={styles.flex_box} style={{ borderBottom: 'none' }}>
                 {
                     guarantor.map(({ item, value }, index) => (
                         <div key={index}>

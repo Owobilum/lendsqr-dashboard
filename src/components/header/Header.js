@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import styles from './Header.module.scss'
 import hamburger from '../../images/hamburger.svg'
@@ -12,13 +13,14 @@ import Drawer from '../drawer/Drawer'
 import Overlay from '../overlay/Overlay'
 
 const Header = () => {
+    const navigate = useNavigate()
     const [showDrawer, setShowDrawer] = useState(false)
 
     return (
         <div className={styles.container}>
             <div className={styles.logo_container}>
-                <img src={logo} alt="" className={styles.logo} />
-                <img src={mobileLogo} alt="" className={styles.mobile_logo} />
+                <img src={logo} alt="" className={styles.logo} onClick={() => navigate('/')} />
+                <img src={mobileLogo} alt="" className={styles.mobile_logo} onClick={() => navigate('/')} />
             </div>
             <div className={styles.search_container}>
                 <div className={styles.input_container}>

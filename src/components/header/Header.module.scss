@@ -14,11 +14,13 @@
     }
     .logo_container{
         .mobile_logo{
+            cursor: pointer;
             @include desktop{
                 display: none;
             }
         }
         .logo{
+            cursor: pointer;
             @include mobile{
                 display: none;
             }
