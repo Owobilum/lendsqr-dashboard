@@ -43,7 +43,7 @@
                         border: 1px solid lightgray;
                         padding-left: 4px;
                         &:focus{
-                            border: 1px solid $secondary-color;
+                            border: solid 1px $secondary-color;
                         }
                     }
                     p.show_btn{
