@@ -7,7 +7,7 @@ import blacklistIcon from '../../images/icons/blacklist_user_icon.png'
 import activateIcon from '../../images/icons/activate_user_icon.png'
 import styles from './TableRow.module.scss'
 
-const TableRow = ({ user: { id, name, email, body }, isLast }) => {
+const TableRow = ({ user: { id, name, email } }) => {
     const navigate = useNavigate()
     const [showMenu, setShowMenu] = useState(false)
     if (name.length > 12) {
@@ -41,7 +41,7 @@ const TableRow = ({ user: { id, name, email, body }, isLast }) => {
             </td>
             {showMenu &&
                 <td className={styles.popover}>
-                    <span onClick={() => navigate('/user/1')} className={styles.link}>
+                    <span onClick={() => navigate(`/user/${id}`)} className={styles.link}>
                         <img src={viewIcon} alt="" /> View Details
                     </span><br />
                     <span onClick={() => setShowMenu(prev => !prev)} className={styles.link}>
