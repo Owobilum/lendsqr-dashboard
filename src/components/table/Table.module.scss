@@ -54,6 +54,13 @@
             img{
                 cursor: pointer;
             }
+            button.page_btn{
+                border: none;
+                color: $primary-color;
+                margin:0 8px;
+                cursor: pointer;
+                background-color: $background-dark;
+            }
         }
     }
 

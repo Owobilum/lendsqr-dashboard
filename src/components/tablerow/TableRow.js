@@ -7,19 +7,34 @@ import blacklistIcon from '../../images/icons/blacklist_user_icon.png'
 import activateIcon from '../../images/icons/activate_user_icon.png'
 import styles from './TableRow.module.scss'
 
-const TableRow = () => {
+const TableRow = ({ user: { id, name, email, body } }) => {
     const navigate = useNavigate()
     const [showMenu, setShowMenu] = useState(false)
+    if (name.length > 12) {
+        name = name.substring(0, 12)
+    }
 
     return (
         <tr>
-            <td>Organization</td>
-            <td>Username</td>
-            <td>Email</td>
-            <td>Phone Number</td>
-            <td>Date Joined</td>
-            <td>Status</td>
-            <td>
+            <td>Lendsqr</td>
+            <td>{name}</td>
+            <td>{email}</td>
+            <td>09090909090</td>
+            <td>{`${id}/${id}/${'2020'}`}</td>
+            <td
+            >
+                <button
+                    style={{
+                        border: 'none',
+                        backgroundColor: '#f3fcf6',
+                        color: 'green',
+                        borderRadius: '20%',
+                        padding: 8
+                    }}
+                >Active
+                </button>
+            </td>
+            <td style={{ minWidth: 32, padding: '0 4px', textAlign: 'right' }}>
                 <img src={actionsIcon} alt="" className={styles.action}
                     onClick={() => setShowMenu(prev => !prev)}
                 />
