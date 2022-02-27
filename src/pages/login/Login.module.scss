@@ -61,12 +61,12 @@
                         }
                     }
                 }
-                a{
-                    text-decoration: none;
+                span.forgot{
                     text-transform: uppercase;
                     color: $secondary-color;
                     display: block;
                     font-weight: 600;
+                    cursor: pointer;
                 }
                 button{
                     width:100%;

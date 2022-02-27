@@ -35,7 +35,7 @@ const Login = () => {
                                 <span>{isShowPassword ? 'hide' : 'show'}</span>
                             </p>
                         </div>
-                        <a href='#'>forgot password?</a><br />
+                        <span className={styles.forgot}>forgot password?</span><br />
                         <button onClick={handleLogin}>log in</button>
                     </form>
                 </div>
