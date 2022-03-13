@@ -11,6 +11,7 @@ const Table = ({ tableHeadings }) => {
     const [showFilter, setShowFilter] = useState(false)
     const [loading, setLoading] = useState(false)
     const [users, setUsers] = useState([])
+    const [openPopover, setOpenPopover] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [usersPerPage, setusersPerPage] = useState(10)
     const indexOfLastUser = currentPage * usersPerPage
@@ -74,7 +75,7 @@ const Table = ({ tableHeadings }) => {
                     <tbody>
                         {
                             currentUsers && currentUsers.map((user, index) => (
-                                <TableRow user={user} key={index} />
+                                <TableRow user={user} key={index} openPopover={openPopover} setOpenPopover={setOpenPopover} />
                             ))
                         }
                     </tbody>
