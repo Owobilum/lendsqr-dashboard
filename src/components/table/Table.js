@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react'
 
 import styles from './Table.module.scss'
 import filterIcon from '../../images/icons/filter_icon.png'
-import prevIcon from '../../images/icons/prev_btn.png'
-import nextIcon from '../../images/icons/next_btn.png'
 import Filter from '../filter/Filter'
 import TableRow from '../tablerow/TableRow'
+import TableFooter from '../tablefooter/TableFooter'
 
 const Table = ({ tableHeadings }) => {
     const [showFilter, setShowFilter] = useState(false)
     const [loading, setLoading] = useState(false)
     const [users, setUsers] = useState([])
+    const [openPopover, setOpenPopover] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [usersPerPage, setusersPerPage] = useState(10)
     const indexOfLastUser = currentPage * usersPerPage
@@ -36,8 +36,11 @@ const Table = ({ tableHeadings }) => {
         } else {
             setUsers(JSON.parse(storedUsers))
         }
+    }
 
-
+    const handleChange = e => {
+        setusersPerPage(e.target.value)
+        setCurrentPage(1)
     }
 
     useEffect(() => {
@@ -74,46 +77,20 @@ const Table = ({ tableHeadings }) => {
                     <tbody>
                         {
                             currentUsers && currentUsers.map((user, index) => (
-                                <TableRow user={user} key={index} />
+                                <TableRow user={user} key={index} openPopover={openPopover} setOpenPopover={setOpenPopover} />
                             ))
                         }
                     </tbody>
                 </table>
             </div>
             {/* table footer */}
-            <div className={styles.table_footer}>
-                <div>
-                    <span>Showing </span>
-                    <select onChange={(e) => setusersPerPage(e.target.value)}>
-                        <option value={10} defaultValue>{10}</option>
-                        <option value={25} >{25}</option>
-                        <option value={100} >{100}</option>
-                    </select>
-                    {" "}<span>out of 500</span>
-                </div>
-                <div className={styles.table_nav}>
-                    <div>
-                        <img
-                            src={prevIcon}
-                            alt=""
-                            width="24px"
-                            onClick={() => currentPage > 1 && setCurrentPage(prev => prev - 1)}
-                        />
-                    </div>
-                    <div>
-                        <button className={styles.page_btn} onClick={() => setCurrentPage(1)}>1</button>
-                        <button className={styles.page_btn} onClick={() => setCurrentPage(1)}>2</button>
-                        <button className={styles.page_btn} onClick={() => setCurrentPage(3)}>3</button>
-                        <span>....</span>
-                        <button className={styles.page_btn} onClick={() => setCurrentPage(totalPages)}>{totalPages}</button>
-                    </div>
-                    <div>
-                        <img src={nextIcon} alt="" width="24px"
-                            onClick={() => currentPage < totalPages && setCurrentPage(prev => prev + 1)}
-                        />
-                    </div>
-                </div>
-            </div>
+            <TableFooter
+                handleChange={handleChange}
+                currentPage={currentPage}
+                users={users}
+                setCurrentPage={setCurrentPage}
+                totalPages={totalPages}
+            />
             {showFilter && <Filter />}
         </div>
     )

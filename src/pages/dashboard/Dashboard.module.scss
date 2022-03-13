@@ -4,6 +4,7 @@
 .root{
     .container{
         display: flex;
+        margin-top: 100px;
         .nav_container{
             flex: 1;
             @include mobile{

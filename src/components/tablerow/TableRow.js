@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import actionsIcon from '../../images/icons/actions_icon.png'
@@ -7,22 +7,26 @@ import blacklistIcon from '../../images/icons/blacklist_user_icon.png'
 import activateIcon from '../../images/icons/activate_user_icon.png'
 import styles from './TableRow.module.scss'
 
-const TableRow = ({ user: { id, name, email } }) => {
+const TableRow = ({ user: { id, name, email }, openPopover, setOpenPopover }) => {
     const navigate = useNavigate()
     const [showMenu, setShowMenu] = useState(false)
     if (name.length > 12) {
         name = name.substring(0, 12)
     }
 
+    useEffect(() => {
+        !openPopover && setShowMenu(false)
+    }, [openPopover])
+
+    const handleClose = () => setOpenPopover(false)
     return (
         <tr>
-            <td>Lendsqr</td>
-            <td>{name}</td>
-            <td>{email}</td>
-            <td>09090909090</td>
-            <td>{`${id}/${id}/${'2020'}`}</td>
-            <td
-            >
+            <td onClick={handleClose}>Lendsqr</td>
+            <td onClick={handleClose}>{name}</td>
+            <td onClick={handleClose}>{email}</td>
+            <td onClick={handleClose}>09090909090</td>
+            <td onClick={handleClose}>{`${id}/${id}/${'2020'}`}</td>
+            <td onClick={handleClose}>
                 <button
                     style={{
                         border: 'none',
@@ -34,12 +38,15 @@ const TableRow = ({ user: { id, name, email } }) => {
                 >Active
                 </button>
             </td>
-            <td style={{ minWidth: 32, padding: '0 4px', textAlign: 'right' }}>
+            <td style={{ minWidth: 32, textAlign: 'right' }}>
                 <img src={actionsIcon} alt="" className={styles.action}
-                    onClick={() => setShowMenu(prev => !prev)}
+                    onClick={() => {
+                        setOpenPopover(prev => !prev)
+                        setShowMenu(prev => !prev)
+                    }}
                 />
             </td>
-            {showMenu &&
+            {showMenu && openPopover &&
                 <td className={styles.popover}>
                     <span onClick={() => navigate(`/user/${id}`)} className={styles.link}>
                         <img src={viewIcon} alt="" /> View Details
@@ -58,4 +65,4 @@ const TableRow = ({ user: { id, name, email } }) => {
 
 }
 
-export default TableRow
+export default React.memo(TableRow)

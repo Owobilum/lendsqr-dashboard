@@ -39,30 +39,5 @@
             }
         }
     }
-    .table_footer{
-        display: flex;
-        justify-content: space-between;
-        margin-top: 24px;
-        color: $primary-color;
-        @include mobile{
-            flex-direction: column;
-            gap: 8px;
-        }
-        .table_nav{
-            display: flex;
-            gap: 8px;
-            img{
-                cursor: pointer;
-            }
-            button.page_btn{
-                border: none;
-                color: $primary-color;
-                margin:0 8px;
-                cursor: pointer;
-                background-color: $background-dark;
-            }
-        }
-    }
-
 }
 
