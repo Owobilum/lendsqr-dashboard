@@ -51,17 +51,6 @@ const Table = ({ tableHeadings }) => {
         return <h4 style={{ textAlign: 'center', textTransform: 'uppercase', paddingTop: 32 }}>loading...</h4>
     }
 
-    const handlePageNumbers = () => {
-        let pages = []
-        for (let i = 0; i < totalPages; i++) {
-            if (i === 3) {
-                break
-            }
-            pages.push(<button key={i * 100} className={styles.page_btn} onClick={() => setCurrentPage(`${Number(i + 1)}`)}>{i + 1}</button>)
-        }
-        return pages
-    }
-
     return (
         <div className={styles.root}>
             {/* Table */}
@@ -100,7 +89,6 @@ const Table = ({ tableHeadings }) => {
                 currentPage={currentPage}
                 users={users}
                 setCurrentPage={setCurrentPage}
-                handlePageNumbers={handlePageNumbers}
                 totalPages={totalPages}
             />
             {showFilter && <Filter />}

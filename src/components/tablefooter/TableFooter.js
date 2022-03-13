@@ -2,8 +2,20 @@ import prevIcon from '../../images/icons/prev_btn.png'
 import nextIcon from '../../images/icons/next_btn.png'
 import styles from './TableFooter.module.scss'
 
-const TableFooter = ({ handleChange, users, setCurrentPage, currentPage, handlePageNumbers, totalPages }) => (
-    <>
+const TableFooter = ({ handleChange, users, setCurrentPage, currentPage, totalPages }) => {
+
+    const handlePageNumbers = () => {
+        let pages = []
+        for (let i = 0; i < totalPages; i++) {
+            if (i === 3) {
+                break
+            }
+            pages.push(<button key={i * 100} className={styles.page_btn} onClick={() => setCurrentPage(`${Number(i + 1)}`)}>{i + 1}</button>)
+        }
+        return pages
+    }
+
+    return <>
         <div className={styles.table_footer}>
             <div>
                 <span>Showing </span>
@@ -44,6 +56,6 @@ const TableFooter = ({ handleChange, users, setCurrentPage, currentPage, handleP
         </div>
         <p className={styles.current_page}>{`page ${currentPage} of ${totalPages}`}</p>
     </>
-)
+}
 
 export default TableFooter
