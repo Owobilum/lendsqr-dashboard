@@ -18,15 +18,15 @@ const TableRow = ({ user: { id, name, email }, openPopover, setOpenPopover }) =>
         !openPopover && setShowMenu(false)
     }, [openPopover])
 
+    const handleClose = () => setOpenPopover(false)
     return (
         <tr>
-            <td>Lendsqr</td>
-            <td>{name}</td>
-            <td>{email}</td>
-            <td>09090909090</td>
-            <td>{`${id}/${id}/${'2020'}`}</td>
-            <td
-            >
+            <td onClick={handleClose}>Lendsqr</td>
+            <td onClick={handleClose}>{name}</td>
+            <td onClick={handleClose}>{email}</td>
+            <td onClick={handleClose}>09090909090</td>
+            <td onClick={handleClose}>{`${id}/${id}/${'2020'}`}</td>
+            <td onClick={handleClose}>
                 <button
                     style={{
                         border: 'none',

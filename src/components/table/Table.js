@@ -37,8 +37,11 @@ const Table = ({ tableHeadings }) => {
         } else {
             setUsers(JSON.parse(storedUsers))
         }
+    }
 
-
+    const handleChange = e => {
+        setusersPerPage(e.target.value)
+        setCurrentPage(1)
     }
 
     useEffect(() => {
@@ -47,6 +50,17 @@ const Table = ({ tableHeadings }) => {
 
     if (loading) {
         return <h4 style={{ textAlign: 'center', textTransform: 'uppercase', paddingTop: 32 }}>loading...</h4>
+    }
+
+    const handlePageNumbers = () => {
+        let pages = []
+        for (let i = 0; i < totalPages; i++) {
+            if (i === 3) {
+                break
+            }
+            pages.push(<button className={styles.page_btn} onClick={() => setCurrentPage(`${Number(i + 1)}`)}>{i + 1}</button>)
+        }
+        return pages
     }
 
     return (
@@ -85,12 +99,12 @@ const Table = ({ tableHeadings }) => {
             <div className={styles.table_footer}>
                 <div>
                     <span>Showing </span>
-                    <select onChange={(e) => setusersPerPage(e.target.value)}>
+                    <select onChange={handleChange}>
                         <option value={10} defaultValue>{10}</option>
                         <option value={25} >{25}</option>
                         <option value={100} >{100}</option>
                     </select>
-                    {" "}<span>out of 500</span>
+                    {" "}<span>out of {users.length}</span>
                 </div>
                 <div className={styles.table_nav}>
                     <div>
@@ -98,23 +112,29 @@ const Table = ({ tableHeadings }) => {
                             src={prevIcon}
                             alt=""
                             width="24px"
-                            onClick={() => currentPage > 1 && setCurrentPage(prev => prev - 1)}
+                            onClick={() => currentPage > 1 && setCurrentPage(prev => Number(prev) - 1)}
                         />
                     </div>
-                    <div>
-                        <button className={styles.page_btn} onClick={() => setCurrentPage(1)}>1</button>
-                        <button className={styles.page_btn} onClick={() => setCurrentPage(1)}>2</button>
-                        <button className={styles.page_btn} onClick={() => setCurrentPage(3)}>3</button>
-                        <span>....</span>
-                        <button className={styles.page_btn} onClick={() => setCurrentPage(totalPages)}>{totalPages}</button>
-                    </div>
+                    {
+                        totalPages >= 4 &&
+                        <div>
+                            {handlePageNumbers()}
+                            <span>....</span>
+                            <button className={styles.page_btn} onClick={() => setCurrentPage(totalPages)}>{totalPages}</button>
+                        </div>
+                    }
+                    {
+                        totalPages < 4 &&
+                        <div>{handlePageNumbers()}</div>
+                    }
                     <div>
                         <img src={nextIcon} alt="" width="24px"
-                            onClick={() => currentPage < totalPages && setCurrentPage(prev => prev + 1)}
+                            onClick={() => currentPage < totalPages && setCurrentPage(prev => Number(prev) + 1)}
                         />
                     </div>
                 </div>
             </div>
+            <p className={styles.current_page}>{`page ${currentPage} of ${totalPages}`}</p>
             {showFilter && <Filter />}
         </div>
     )
